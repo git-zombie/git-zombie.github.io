@@ -10,4 +10,4 @@ These days, I work during the day as a software development manager running the 
 
 ### Contact me
 
-[gsp.gsp@gmail.com](mailto:gsp.gsp@gmail.com)
+[contact@gsp.cloud](mailto:contact@gsp.cloud)
