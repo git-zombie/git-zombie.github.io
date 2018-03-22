@@ -21,70 +21,50 @@ The few changes I made from the documentation involved turning on the Traefik da
 
 Let’s look at the docker-compose yaml file.
 
-`
-[user@host ~]$ cat traefik/docker-compose.yml
-version: '2'
-services:
-traefik:
-image: traefik
-restart: always
-ports:
-- 80:80
-- 443:443
-- 8080:8080
-      networks:
-        network1:
-        network2:
-          ipv4_address: 192.168.1.2
-volumes:
-- /var/run/docker.sock:/var/run/docker.sock
-- /home/user/traefik/traefik.toml:/traefik.toml
-- /home/user/traefik/acme.json:/acme.json
-container_name: traefik
-      labels:
-      - "traefik.frontend.rule=Host:monitor.gsp.cloud"
-      - "traefik.port=8080"
-networks:
-  iot:
-    external: true
-  usenet:
-    external: true
-`
+
+    [user@host ~]$ cat traefik/docker-compose.yml
+    version: '2'
+    services:
+    traefik:
+    image: traefik
+    restart: always
+    ports:
+    - 80:80
+    - 443:443
+    - 8080:8080
+          networks:
+            network1:
+            network2:
+              ipv4_address: 192.168.1.2
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - /home/user/traefik/traefik.toml:/traefik.toml
+    - /home/user/traefik/acme.json:/acme.json
+    container_name: traefik
+          labels:
+          - "traefik.frontend.rule=Host:monitor.gsp.cloud"
+          - "traefik.port=8080"
+    networks:
+      iot:
+        external: true
+      usenet:
+        external: true
+
 These changes accomplished two things:
 
 The monitoring dashboard, available at port 8080 has been exposed, but not actually made available. I can check it, but only inside the LAN. This can be helpful for confirming route availability.
 I also set Traefik up to span across two different Docker network interfaces, one of which is a bridge and the other is a macvlan interface.
-`
-[user@host ~]$ cat traefik/traefik.toml
-debug = false
-checkNewVersion = true
-logLevel = "ERROR"
-defaultEntryPoints = ["https","http"]
-InsecureSkipVerify = true
-[entryPoints]
-[entryPoints.http]
-address = ":80"
-[entryPoints.http.redirect]
-entryPoint = "https"
-[entryPoints.https]
-address = ":443"
-[entryPoints.https.tls]
-[retry]
-[docker]
-endpoint = "unix:///var/run/docker.sock"
-  domain = "gsp.cloud"
-watch = true
-exposedbydefault = false
-[acme]
-  email = "myemail@domain.com"
-storage = "acme.json"
-entryPoint = "https"
-OnHostRule = true
-[web]
-  address = ":8080"
-[web.auth.basic]
-  users = ["admin:asdfasdfasdfasdfasdf"]
-`
+
+> [user@host ~]$ cat traefik/traefik.toml debug = false checkNewVersion
+> = true logLevel = "ERROR" defaultEntryPoints = ["https","http"] InsecureSkipVerify = true [entryPoints] [entryPoints.http] address =
+> ":80" [entryPoints.http.redirect] entryPoint = "https"
+> [entryPoints.https] address = ":443" [entryPoints.https.tls] [retry]
+> [docker] endpoint = "unix:///var/run/docker.sock"   domain =
+> "gsp.cloud" watch = true exposedbydefault = false [acme]   email =
+> "myemail@domain.com" storage = "acme.json" entryPoint = "https"
+> OnHostRule = true [web]   address = ":8080" [web.auth.basic]   users =
+> ["admin:asdfasdfasdfasdfasdf"]
+
 Past the documentation, there’s only a couple things going on here.
 
 I’m setting my email and domain name.
