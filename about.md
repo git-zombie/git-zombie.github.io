@@ -4,12 +4,10 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
-
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+These days, I work during the day as a software development manager running the US R&D wing of a private European company. In my spare time, I practice law, build furniture, write code, play video games and hang out with my dog.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[gsp.gsp@gmail.com](mailto:gsp.gsp@gmail.com)
