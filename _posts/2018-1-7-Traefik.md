@@ -1,9 +1,11 @@
 ---
 layout: post
 title: Traefik
+published: true
 ---
 
 To quote one of the great code-wizards I know, ‘Traefik is magic.’
+![traefik.logo.png]({{site.baseurl}}/_posts/traefik.logo.png)
 
 Traefik is self-described as “a modern HTTP reverse proxy and load balancer made to deploy microservices with ease.”  I’d rather call it ‘a way better alternative to nginx that also solved my SSL certificate headache.’
 
