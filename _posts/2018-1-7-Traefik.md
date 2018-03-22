@@ -21,7 +21,7 @@ The few changes I made from the documentation involved turning on the Traefik da
 
 Let’s look at the docker-compose yaml file.
 
-
+`
 [user@host ~]$ cat traefik/docker-compose.yml
 version: '2'
 services:
@@ -49,12 +49,12 @@ networks:
     external: true
   usenet:
     external: true
-
+`
 These changes accomplished two things:
 
 The monitoring dashboard, available at port 8080 has been exposed, but not actually made available. I can check it, but only inside the LAN. This can be helpful for confirming route availability.
 I also set Traefik up to span across two different Docker network interfaces, one of which is a bridge and the other is a macvlan interface.
-
+`
 [user@host ~]$ cat traefik/traefik.toml
 debug = false
 checkNewVersion = true
@@ -84,7 +84,7 @@ OnHostRule = true
   address = ":8080"
 [web.auth.basic]
   users = ["admin:asdfasdfasdfasdfasdf"]
-
+`
 Past the documentation, there’s only a couple things going on here.
 
 I’m setting my email and domain name.
