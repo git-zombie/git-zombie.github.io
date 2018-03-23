@@ -1,5 +1,7 @@
 ---
-published: false
+layout: post
+title: Cleaning up a Repo
+published: true
 ---
 ## Cleaning up a commit
 
