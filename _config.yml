@@ -84,9 +84,8 @@ exclude:
   - LICENSE
   - README.md
   - CNAME
-  
-  
-  prose:
+    
+prose:
       rooturl: '_posts'
       siteurl: 'https://git.gsp.cloud/'
       relativeLinks: 'https://git.gsp.cloud/'
@@ -120,4 +119,3 @@ exclude:
               label: "Add Image to Post"
               placeholder: "Image path (relative to /assets/post-images/)"
               alterable: true
-
