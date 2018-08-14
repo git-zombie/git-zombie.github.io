@@ -2,8 +2,6 @@
 layout: post
 published: false
 title: Editing with Jekyll on the Go
-categories: ''
-image: ''
 ---
 #A decent solution for posting to this blog when traveling
 
