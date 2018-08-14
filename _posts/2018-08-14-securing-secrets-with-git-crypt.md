@@ -1,6 +1,6 @@
 ---
 layout: post
-published: false
+published: true
 title: Securing secrets with git-crypt
 ---
 Another challenge I've taken on recently is moving my content to GitHub from Bitbucket. Medium.com wrote a great article about [Github's impact on your software career](https://medium.com/@sitapati/the-impact-github-is-having-on-your-software-career-right-now-6ce536ec0b50) 
@@ -28,4 +28,3 @@ To [configure git-crypt for the new repo](https://www.schibsted.pl/blog/devops/s
 - Configure the files to be hidden with a .gitattributes file
 
 And finally to commit your project, make sure to run `git-crypt status -e`
-
