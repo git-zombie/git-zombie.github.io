@@ -3,7 +3,7 @@ layout: post
 published: true
 title: Securing secrets with git-crypt
 ---
-Another challenge I've taken on recently is moving my content to GitHub from Bitbucket. Medium.com wrote a great article about [Github's impact on your software career](https://medium.com/@sitapati/the-impact-github-is-having-on-your-software-career-right-now-6ce536ec0b50) 
+Another challenge I've taken on recently is moving my content to GitHub from Bitbucket. Medium.com wrote a great article about [Github's impact on your software career](https://medium.com/@sitapati/the-impact-github-is-having-on-your-software-career-right-now-6ce536ec0b50) Security being top-priority though, I needed to secure my secrets before moving this content to public repos. Enter `git-crypt`.
 
 I feel like it is important that as I continue in management that I keep my technical skills relevant, and I also wanted to practice CI/CD tooling a bit more, so early this year I decided I wanted to move my content to GitHub. 
 
