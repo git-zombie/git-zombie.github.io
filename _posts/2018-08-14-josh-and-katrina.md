@@ -1,9 +1,7 @@
 ---
 layout: post
-published: false
+published: true
 title: Josh and Katrina
-categories: ''
-image: ''
 ---
 I wouldn't normally post on a human interest story like this, but this story hit me harder than most news stories. As a lawyer, I usually defend the justice system; in this case, I felt like this was a tragic story that could have been prevented. 
 
