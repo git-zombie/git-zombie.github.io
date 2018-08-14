@@ -3,7 +3,7 @@ layout: post
 published: true
 title: Editing with Jekyll on the Go
 ---
-#A decent solution for posting to this blog when traveling
+A decent solution for posting to this blog when traveling
 
 One of the reasons I haven't been posting as much is due to the difficulty of posting on mobile. 
 
