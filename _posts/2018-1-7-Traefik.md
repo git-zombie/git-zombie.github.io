@@ -56,16 +56,45 @@ These changes accomplished two things:
 
 The monitoring dashboard, available at port 8080 has been exposed, but not actually made available. I can check it, but only inside the LAN. This can be helpful for confirming route availability.
 I also set Traefik up to span across two different Docker network interfaces, one of which is a bridge and the other is a macvlan interface.
+```
+[user@host ~]$ cat traefik/traefik.toml 
+debug = false
+checkNewVersion = true
+logLevel = "ERROR"
+defaultEntryPoints = ["https","http"]
+InsecureSkipVerify = true
 
-> [user@host ~]$ cat traefik/traefik.toml debug = false checkNewVersion
-> = true logLevel = "ERROR" defaultEntryPoints = ["https","http"] InsecureSkipVerify = true [entryPoints] [entryPoints.http] address =
-> ":80" [entryPoints.http.redirect] entryPoint = "https"
-> [entryPoints.https] address = ":443" [entryPoints.https.tls] [retry]
-> [docker] endpoint = "unix:///var/run/docker.sock"   domain =
-> "gsp.cloud" watch = true exposedbydefault = false [acme]   email =
-> "myemail@domain.com" storage = "acme.json" entryPoint = "https"
-> OnHostRule = true [web]   address = ":8080" [web.auth.basic]   users =
-> ["admin:asdfasdfasdfasdfasdf"]
+
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+    [entryPoints.http.redirect]
+    entryPoint = "https"
+  [entryPoints.https]
+  address = ":443"
+  [entryPoints.https.tls]
+
+[retry]
+
+[docker]
+endpoint = "unix:///var/run/docker.sock"
+domain = "$MyDomain"
+watch = true
+exposedbydefault = false
+
+[acme]
+email = "$email"
+storage = "acme.json"
+entryPoint = "https"
+OnHostRule = true
+
+[web]
+address = ":8080"
+  [web.auth.basic]
+  users = ["$user:$password"]
+
+[accessLog]
+```
 
 Past the documentation, there’s only a couple things going on here.
 
